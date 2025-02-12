@@ -3,3 +3,6 @@ A Tampermonkey script for Typing.com that automatically reloads the page when a 
 
 # Installation
 You can either download the file, or copy paste the code on Tampermonkey's code editor.
+
+# Issues
+Please send any issue you're having with the script. Your feedback is very important
