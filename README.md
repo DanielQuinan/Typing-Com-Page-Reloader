@@ -6,3 +6,6 @@ You can either download the file, or copy paste the code on Tampermonkey's code 
 
 # Issues
 Please send any issue you're having with the script. Your feedback is very important
+
+# New Version
+The last commit changed the way this program works, but it's still do the same thing. Now the script automatically clicks the "redo" button, if you have any trouble using it, consider using the version 1.0.

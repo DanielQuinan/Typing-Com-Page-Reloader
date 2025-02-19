@@ -1,13 +1,14 @@
 // ==UserScript==
-// @name         Typing.com mistype page reloader
+// @name         Typing.com Mistype Auto Restart
 // @namespace    https://github.com/DanielQuinan
-// @version      2025-02-07
-// @description  Page reloader for every typing mistake, so the user don't have to always manually reload the page or click the reload button
+// @version      2025-02-19
+// @description  Automatically clicks on the restart button whevener a mistype is written
 // @author       Daniel Quinan
 // @match        www.typing.com/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
 // ==/UserScript==
+
 (function() {
     'use strict';
 
@@ -16,12 +17,20 @@
 
         for (const element of letterElements) {
             if (element.classList.contains('is-wrong')) {
-                console.log('Elemento "letter--basic" com classe "is-wrong" encontrado. Atualizando a página...');
-                location.reload();
+                console.log('Error Detected');
+
+                const restartButton = document.querySelector('.js-restart-screen');
+                if (restartButton) {
+                    restartButton.click();
+                } else {
+                    console.log('Restart Button Not Found');
+                }
+
                 return;
             }
         }
     }
+
 
     checkForWrongClass();
 
@@ -30,5 +39,3 @@
     const observer = new MutationObserver(checkForWrongClass);
     observer.observe(document.body, { childList: true, subtree: true });
 })();
-
-
